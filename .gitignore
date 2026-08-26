@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+.idea/
+.vscode/
+data/*
+!data/README.md
+rnn_model.pt
+generated_text.txt
+
