@@ -113,8 +113,10 @@ temperature: 0.8
 对于字符序列 $x_1,x_2,\ldots,x_T$，Character RNN 将联合概率分解为：
 
 ```math
-p(x_1,\ldots,x_T)=\prod_{t=1}^{T}p\left(x_t\mid x_{<t}\right)
+p(x_1,\ldots,x_T)=\prod_{t=1}^{T}p\left(x_t\mid x_{1:t-1}\right)
 ```
+
+其中 $x_{1:t-1}$ 表示位置 $t$ 之前的所有字符。
 
 训练数据使用错开一位的输入和目标。例如，输入 `hell` 时，目标为 `ello`，模型在
 每个时间步预测下一个字符。编码后的文本被排列成多条连续字符流，每次读取
